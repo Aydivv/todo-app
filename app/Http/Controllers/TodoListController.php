@@ -8,7 +8,7 @@ class TodoListController extends Controller
 {
     //
     public function index(){
-        return view('welcome', ['listItems' => ListItem::all()]);
+        return view('welcome', ['listItems' => ListItem::where('isComplete',0)->get()]);
     }
 
     public function saveItem(Request $request)
