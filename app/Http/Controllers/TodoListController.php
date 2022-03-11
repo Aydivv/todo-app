@@ -23,8 +23,10 @@ class TodoListController extends Controller
 
     public function completeItem($id)
     {
-        $newItem = new ListItem;
-        
+        $item = ListItem::find($id);
+        $item->isComplete = 1;
+        $item->save();
+
         return redirect('/');
     }
 }
